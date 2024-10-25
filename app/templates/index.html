@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книжковий сервер</title>
+</head>
+<body>
+    <style>
+
+        h1 {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .book-link {
+            display: inline-block; /* Делает ссылку блочным элементом для применения отступов */
+            margin-top: 15px; /* Отступ сверху */
+            background-color: #0073e6; /* Цвет фона для ссылки */
+            color: white; /* Цвет текста */
+            font-size: 18px; /* Размер текста */
+            font-weight: bold; /* Жирный текст */
+            border-radius: 5px; /* Скругление углов */
+            padding: 10px 15px; /* Внутренние отступы */
+            text-decoration: none; /* Убираем подчеркивание */
+            transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+        }
+
+        .book-link:hover {
+            background-color: #005bb5; /* Более темный цвет фона при наведении */
+        }
+    </style>
+    <center>
+        <h1>Вас вітає книжковий сервер. Ви можете додати свої улюблені книги</h1>
+        <a href="/books/" class="book-link">Усі книги</a>
+    </center>
+</body>
+</html>

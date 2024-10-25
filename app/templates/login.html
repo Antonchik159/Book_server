@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новий користувач</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7faff;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #0073e6;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #f7faff;
+            border: 1px solid #d0e6ff;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 18px;
+            color: #0073e6;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #d0e6ff;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #f7faff;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #0073e6;
+            outline: none;
+        }
+
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            background-color: #0073e6;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Вхід</h1>
+    <form action="" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit">Вхід</button>
+    </form>
+    <center>
+        <a href="{{url_for('new_user_form')}}">Створити нового користувача</a>
+    </center>
+</body>
+</html>

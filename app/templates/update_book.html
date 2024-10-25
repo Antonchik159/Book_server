@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Book</title>
+</head>
+<body>
+    <h1>Select a Book to Update</h1>
+    <form action="{{ url_for('update_book') }}" method="GET">
+        <label for="book_id">Book:</label>
+        <select id="book_id" name="book_id" required>
+            <option value="" disabled selected>Select a book</option>
+            {% for book in books %}
+                <option value="{{ book.id }}">{{ book.name }} by {{ book.author }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Update Book</button>
+    </form>
+</body>
+</html>
+

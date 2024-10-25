@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Видалити книгу</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7faff;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #0073e6;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #f7faff;
+            border: 1px solid #d0e6ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        ul li:hover {
+            background-color: #e6f0ff;
+        }
+
+        label {
+            font-size: 18px;
+            color: #0073e6;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .delete-button {
+            display: inline-block;
+            background-color: #e60000;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .delete-button:hover {
+            background-color: #b30000;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #0073e6;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 10px 15px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: #005bb5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Виберіть книгу для видалення</h1>
+
+    <ul>
+        {% for book in books %}
+        <li>
+            <form method="POST" action="{{ url_for('delete_book', book_id=book.id) }}">
+                <label>
+                    <!-- <input type="radio" name="book_id" value="{{ book.id }}"> -->
+                    {{ book.name }}
+                </label>
+                <button type="submit" class="delete-button">Видалити</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    
+    <a href="{{ url_for('read_books') }}" class="back-link">До усіх книг</a>
+
+</body>
+</html>

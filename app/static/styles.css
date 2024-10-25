@@ -1,0 +1,179 @@
+.book-details {
+    background-color: #f7faff; /* Фон блока */
+    border: 1px solid #d0e6ff; /* Граница блока */
+    border-radius: 8px; /* Скругленные углы */
+    padding: 20px; /* Внутренние отступы */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+.book-name {
+    font-family: Arial, sans-serif; /* Шрифт для названия книги */
+    font-size: 24px; /* Размер шрифта названия */
+    color: #0073e6; /* Цвет текста */
+    margin-bottom: 15px; /* Отступ снизу */
+}
+
+.author, .page-count {
+    margin: 10px 0; /* Отступы между параграфами */
+    color: #333; /* Цвет текста */
+    font-size: 18px; /* Размер текста */
+}
+
+.back-link {
+    display: inline-block; /* Делает ссылку блочным элементом для применения отступов */
+    margin-top: 15px; /* Отступ сверху */
+    background-color: #0073e6; /* Цвет фона для ссылки */
+    color: white; /* Цвет текста */
+    font-size: 18px; /* Размер текста */
+    font-weight: bold; /* Жирный текст */
+    border-radius: 5px; /* Скругление углов */
+    padding: 10px 15px; /* Внутренние отступы */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+}
+
+.back-link:hover {
+    background-color: #005bb5; /* Более темный цвет фона при наведении */
+}
+
+h1 {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.book-link {
+    display: inline-block; /* Делает ссылку блочным элементом для применения отступов */
+    margin-top: 15px; /* Отступ сверху */
+    background-color: #0073e6; /* Цвет фона для ссылки */
+    color: white; /* Цвет текста */
+    font-size: 18px; /* Размер текста */
+    font-weight: bold; /* Жирный текст */
+    border-radius: 5px; /* Скругление углов */
+    padding: 10px 15px; /* Внутренние отступы */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+}
+
+.book-link:hover {
+    background-color: #005bb5; /* Более темный цвет фона при наведении */
+}
+
+.book-form {
+    background-color: #f7faff; /* Фон формы */
+    border: 1px solid #d0e6ff; /* Граница формы */
+    border-radius: 8px; /* Скругленные углы */
+    padding: 20px; /* Внутренние отступы */
+    margin: 20px 0; /* Отступы сверху и снизу */
+    transition: box-shadow 0.3s ease; /* Плавный переход тени */
+}
+
+.book-form:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень при наведении */
+}
+
+.book-form label {
+    display: block; /* Показать метки как блочные элементы */
+    margin-bottom: 5px; /* Отступ снизу */
+    font-weight: bold; /* Жирный текст */
+    color: #333; /* Цвет текста */
+}
+
+.book-form input {
+    width: calc(100% - 20px); /* Ширина инпутов */
+    padding: 10px; /* Внутренние отступы */
+    border: 1px solid #d0e6ff; /* Граница инпутов */
+    border-radius: 5px; /* Скругленные углы инпутов */
+    margin-bottom: 15px; /* Отступ снизу */
+    transition: border-color 0.3s ease; /* Плавный переход цвета границы */
+}
+
+.book-form input:focus {
+    border-color: #0073e6; /* Цвет границы при фокусе */
+    outline: none; /* Убираем стандартный обвод */
+}
+
+.submit-button {
+    background-color: #0073e6; /* Цвет фона кнопки */
+    color: white; /* Цвет текста кнопки */
+    font-size: 18px; /* Размер текста кнопки */
+    font-weight: bold; /* Жирный текст */
+    border: none; /* Убираем границу */
+    border-radius: 5px; /* Скругление углов кнопки */
+    padding: 10px 15px; /* Внутренние отступы для кнопки */
+    cursor: pointer; /* Указатель при наведении на кнопку */
+    transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+}
+
+.submit-button:hover {
+    background-color: #005bb5; /* Более темный цвет фона при наведении */
+}
+
+
+.all-books {
+    display: inline-block; /* Делает ссылку блочным элементом для применения отступов */
+    padding: 10px 15px; /* Внутренние отступы для удобства клика */
+    background-color: #0073e6; /* Цвет фона для ссылки */
+    color: white; /* Цвет текста */
+    font-size: 18px; /* Размер текста */
+    font-weight: bold; /* Жирный текст */
+    border-radius: 5px; /* Скругление углов */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+    margin-top: 20px; /* Отступ сверху для отделения от списка */
+}
+
+.all-books:hover {
+    background-color: #005bb5; /* Более темный цвет фона при наведении */
+}
+
+.add-book-link {
+    display: inline-block; /* Делает ссылку блочным элементом для применения отступов */
+    padding: 10px 15px; /* Внутренние отступы для удобства клика */
+    background-color: #0073e6; /* Цвет фона для ссылки */
+    color: white; /* Цвет текста */
+    font-size: 18px; /* Размер текста */
+    font-weight: bold; /* Жирный текст */
+    border-radius: 5px; /* Скругление углов */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+    margin-top: 20px; /* Отступ сверху для отделения от списка */
+}
+
+.add-book-link:hover {
+    background-color: #005bb5; /* Более темный цвет фона при наведении */
+}
+
+ul.book-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+ul.book-list li {
+    margin-bottom: 15px;
+    padding: 12px 20px;
+    background-color: #f7faff;
+    border: 1px solid #d0e6ff;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+ul.book-list li:hover {
+    background-color: #e6f0ff;
+    transform: scale(1.02);
+}
+
+ul.book-list li a {
+    text-decoration: none;
+    color: #0073e6;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+ul.book-list li a:hover {
+    color: #005bb5;
+}

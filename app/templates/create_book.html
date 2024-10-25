@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Book</title>
+    <!-- <link rel="stylesheet" href="/static/styles.css"> -->
+</head>
+<body>
+
+    <style>
+
+        h1 {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .book-form {
+            background-color: #f7faff; /* Фон формы */
+            border: 1px solid #d0e6ff; /* Граница формы */
+            border-radius: 8px; /* Скругленные углы */
+            padding: 20px; /* Внутренние отступы */
+            margin: 20px 0; /* Отступы сверху и снизу */
+            transition: box-shadow 0.3s ease; /* Плавный переход тени */
+        }
+
+        .book-form:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень при наведении */
+        }
+
+        .book-form label {
+            display: block; /* Показать метки как блочные элементы */
+            margin-bottom: 5px; /* Отступ снизу */
+            font-weight: bold; /* Жирный текст */
+            color: #333; /* Цвет текста */
+        }
+
+        .book-form input {
+            width: calc(100% - 20px); /* Ширина инпутов */
+            padding: 10px; /* Внутренние отступы */
+            border: 1px solid #d0e6ff; /* Граница инпутов */
+            border-radius: 5px; /* Скругленные углы инпутов */
+            margin-bottom: 15px; /* Отступ снизу */
+            transition: border-color 0.3s ease; /* Плавный переход цвета границы */
+        }
+
+        .book-form input:focus {
+            border-color: #0073e6; /* Цвет границы при фокусе */
+            outline: none; /* Убираем стандартный обвод */
+        }
+
+        .submit-button {
+            background-color: #0073e6; /* Цвет фона кнопки */
+            color: white; /* Цвет текста кнопки */
+            font-size: 18px; /* Размер текста кнопки */
+            font-weight: bold; /* Жирный текст */
+            border: none; /* Убираем границу */
+            border-radius: 5px; /* Скругление углов кнопки */
+            padding: 10px 15px; /* Внутренние отступы для кнопки */
+            cursor: pointer; /* Указатель при наведении на кнопку */
+            transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+        }
+
+        .submit-button:hover {
+            background-color: #005bb5; /* Более темный цвет фона при наведении */
+        }
+
+
+        .all-books {
+            display: inline-block; /* Делает ссылку блочным элементом для применения отступов */
+            padding: 10px 15px; /* Внутренние отступы для удобства клика */
+            background-color: #0073e6; /* Цвет фона для ссылки */
+            color: white; /* Цвет текста */
+            font-size: 18px; /* Размер текста */
+            font-weight: bold; /* Жирный текст */
+            border-radius: 5px; /* Скругление углов */
+            text-decoration: none; /* Убираем подчеркивание */
+            transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+            margin-top: 20px; /* Отступ сверху для отделения от списка */
+        }
+
+        .all-books:hover {
+            background-color: #005bb5; /* Более темный цвет фона при наведении */
+        }
+
+    </style>
+
+    <center>
+
+        <h1>Додати нову книгу</h1>
+        <form action="{{url_for('create_book')}}" method="post" class="book-form">
+    
+            <label for="name">Назва:</label>
+            <input type="text" id="name" name="name" required><br><br>
+    
+            <label for="author">Автор:</label>
+            <input type="text" id="author" name="author" required><br><br>
+    
+            <label for="count_page">Кількість сторінок:</label>
+            <input type="number" id="count_page" name="count_page" required><br><br>
+    
+            <button type="submit" class="submit-button">Створити</button>
+        </form>
+        <a href="{{ url_for('read_books') }}" class="all-books">Усі книги</a>
+    </center>
+
+</body>
+</html>

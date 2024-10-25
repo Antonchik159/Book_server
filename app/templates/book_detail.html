@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.name }}</title>
+    <!-- <link rel="stylesheet" href="/static/styles.css"> -->
+</head>
+<body>
+
+    <style>
+        .book-details {
+            background-color: #f7faff; /* Фон блока */
+            border: 1px solid #d0e6ff; /* Граница блока */
+            border-radius: 8px; /* Скругленные углы */
+            padding: 20px; /* Внутренние отступы */
+            margin: 20px 0; /* Отступы сверху и снизу */
+        }
+
+        .book-name {
+            font-family: Arial, sans-serif; /* Шрифт для названия книги */
+            font-size: 24px; /* Размер шрифта названия */
+            color: #0073e6; /* Цвет текста */
+            margin-bottom: 15px; /* Отступ снизу */
+        }
+
+        .author, .page-count {
+            margin: 10px 0; /* Отступы между параграфами */
+            color: #333; /* Цвет текста */
+            font-size: 18px; /* Размер текста */
+        }
+
+        .back-link {
+            display: inline-block; /* Делает ссылку блочным элементом для применения отступов */
+            margin-top: 15px; /* Отступ сверху */
+            background-color: #0073e6; /* Цвет фона для ссылки */
+            color: white; /* Цвет текста */
+            font-size: 18px; /* Размер текста */
+            font-weight: bold; /* Жирный текст */
+            border-radius: 5px; /* Скругление углов */
+            padding: 10px 15px; /* Внутренние отступы */
+            text-decoration: none; /* Убираем подчеркивание */
+            transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+        }
+
+        .back-link:hover {
+            background-color: #005bb5; /* Более темный цвет фона при наведении */
+        }
+
+    </style>
+
+    <div class="book-details">
+        <h1 class="book-name">{{ book.name }}</h1>
+        <p class="author">{{ book.author }}</p>
+        <p class="page-count">{{ book.count_page }}</p>
+        <a href="{{ url_for('read_books') }}" class="back-link">До усіх книг</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Усі книги</title>
+    <!-- <link rel="stylesheet" href="/static/styles.css"> -->
+</head>
+<body>
+
+    <style>
+
+        h1 {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .add-book-link {
+            display: inline-block; /* Делает ссылку блочным элементом для применения отступов */
+            padding: 10px 15px; /* Внутренние отступы для удобства клика */
+            background-color: #0073e6; /* Цвет фона для ссылки */
+            color: white; /* Цвет текста */
+            font-size: 18px; /* Размер текста */
+            font-weight: bold; /* Жирный текст */
+            border-radius: 5px; /* Скругление углов */
+            text-decoration: none; /* Убираем подчеркивание */
+            transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+            margin-top: 20px; /* Отступ сверху для отделения от списка */
+        }
+
+        .add-book-link:hover {
+            background-color: #005bb5; /* Более темный цвет фона при наведении */
+        }
+
+        ul.book-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        ul.book-list li {
+            margin-bottom: 15px;
+            padding: 12px 20px;
+            background-color: #f7faff;
+            border: 1px solid #d0e6ff;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        ul.book-list li:hover {
+            background-color: #e6f0ff;
+            transform: scale(1.02);
+        }
+
+        ul.book-list li a {
+            text-decoration: none;
+            color: #0073e6;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        ul.book-list li a:hover {
+            color: #005bb5;
+        }
+
+    </style>
+
+    <center>
+        <h1>Усі книги</h1>
+    </center>
+
+    {% if books %}
+        <ul class="book-list">
+            {% for book in books %}
+                <li>
+                    <a href="{{ url_for('read_book', book_id=book.id) }}">{{ book.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{url_for('new_book_form')}}" class="add-book-link">Додати нову книгу</a>
+        <a href="/books/delete/" class="add-book-link">Видалити</a>
+    {% else %}
+        <center><h1>Нема книг!</h1></center>
+        <a href="{{url_for('new_book_form')}}" class="add-book-link">Додати нову книгу</a>
+    {% endif %}
+    <a href="{{url_for('new_user_form')}}" class="add-book-link">Реєстрація</a>
+
+</body>
+</html>
