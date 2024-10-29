@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ book.name }}</title>
-    <!-- <link rel="stylesheet" href="/static/styles.css"> -->
 </head>
 <body>
 
@@ -17,20 +16,21 @@
             margin: 20px 0; /* Отступы сверху и снизу */
         }
 
-        .book-name {
-            font-family: Arial, sans-serif; /* Шрифт для названия книги */
-            font-size: 24px; /* Размер шрифта названия */
-            color: #0073e6; /* Цвет текста */
+        .book-name, .author, .page-count {
+            margin: 10px 0; /* Отступы между элементами */
+            font-size: 18px; /* Размер текста */
+            color: #333; /* Цвет текста */
+        }
+
+        input[type="text"], input[type="number"] {
+            width: calc(100% - 20px); /* Ширина полей с учетом отступов */
+            padding: 10px; /* Внутренние отступы */
+            border: 1px solid #d0e6ff; /* Граница полей */
+            border-radius: 5px; /* Скругление углов */
             margin-bottom: 15px; /* Отступ снизу */
         }
 
-        .author, .page-count {
-            margin: 10px 0; /* Отступы между параграфами */
-            color: #333; /* Цвет текста */
-            font-size: 18px; /* Размер текста */
-        }
-
-        .back-link {
+        .back-link, .save-button {
             display: inline-block; /* Делает ссылку блочным элементом для применения отступов */
             margin-top: 15px; /* Отступ сверху */
             background-color: #0073e6; /* Цвет фона для ссылки */
@@ -43,17 +43,26 @@
             transition: background-color 0.3s ease; /* Плавный переход цвета фона */
         }
 
-        .back-link:hover {
+        .back-link:hover, .save-button:hover {
             background-color: #005bb5; /* Более темный цвет фона при наведении */
         }
 
     </style>
 
     <div class="book-details">
-        <h1 class="book-name">{{ book.name }}</h1>
-        <p class="author">{{ book.author }}</p>
-        <p class="page-count">{{ book.count_page }}</p>
-        <a href="{{ url_for('edit_all_book', book_id=book.id) }}" class="back-link">Змінити</a>
+        <form method="POST" action="{{ url_for('edit_book', book_id=book.id) }}">
+            <label class="book-name">Название книги:</label>
+            <input type="text" name="name" value="{{ book.name }}" required>
+        
+            <label class="author">Автор:</label>
+            <input type="text" name="author" value="{{ book.author }}" required>
+        
+            <label class="page-count">Количество страниц:</label>
+            <input type="number" name="count_page" value="{{ book.count_page }}" required>
+        
+            <button type="submit" class="save-button">Зберегти зміни</button>
+        </form>
+        
         <a href="{{ url_for('read_books') }}" class="back-link">До усіх книг</a>
     </div>
 
