@@ -53,7 +53,7 @@ async def create_book(name: str =Form(...), author: str = Form(...), count_page:
 # def create_users(user: User, db: Session = Depends(get_db)):
 async def create_users(username: str = Form(...), password: str = Form(...), db: Session = Depends(get_db)):
     user = UserCreate(username=username, password=password)
-    # return create_user_db(db=db, user=user)
+    create_user_db(db=db, user=user)
     return RedirectResponse(url=f"/books/?message=Ви%20увійшли%20як%20{username}", status_code=303)
 
 @router.get("/books/", response_model=list[Book], response_class=HTMLResponse)
