@@ -3,7 +3,7 @@ from . import models
 from app import schemas
 from passlib.context import CryptContext
 import secrets
-from app.schemas import UserCreate
+from app.schemas import UserCreate, Book
 from datetime import datetime, timedelta
 from jose import JWTError, jwt
 
@@ -51,14 +51,11 @@ def create_user_db(db: Session, user: UserCreate):
 def get_password_hash(password):
    return pwd_context.hash(password)
 
-# def token_create(data: dict):
-#     expires_delta = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-#     to_encode = data.copy()
-#     if expires_delta:
-#         expire = datetime.utcnow() + expires_delta
-#     else:
-#         expire = datetime.utcnow() + timedelta(minutes=15)
-#     to_encode.update({"exp": expire})
-#     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-
-#     return encoded_jwt
+def edit_book_db(db: Session, book_data: Book, book_id: int):
+    book = get_book_db(db, book_id)
+    book.name = book_data.name
+    book.author = book_data.author
+    book.count_page = book_data.count_page
+    db.commit()
+    db.refresh(book)
+    return book

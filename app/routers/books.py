@@ -2,7 +2,7 @@ from fastapi import Depends, HTTPException , APIRouter, Form, status
 from app.schemas import BookCreate ,Book, UserCreate, User, UserGet
 from starlette.requests import Request
 from sqlalchemy.orm import Session
-from app.db.crud import create_book_db , get_book_db , get_books_db, create_user_db, delete_book_db
+from app.db.crud import create_book_db , get_book_db , get_books_db, create_user_db, delete_book_db, edit_book_db
 from app.db.database import SessionLocal
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, RedirectResponse, Response
@@ -76,16 +76,6 @@ def read_book(request: Request, book_id: int, db: Session = Depends(get_db)):
 async def new_user_form(request: Request):
     return templates.TemplateResponse("create_user.html", {"request": request})
 
-# @router.post("/token/")
-# async def token_get(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]):
-#     user_data = users_data.get(form_data.username)
-#     if not user_data:
-#         raise HTTPException(status_code=400, detail="Incorrect username or password")
-#     else:
-#         global user
-#         user = UserDB(**user_data)
-
-#         if not pwd_context.verify(form_data.password, user.password):
-#             raise HTTPException(status_code=400, detail="Incorect username or password")
-#         token = token_create(data={"sub": user.username})
-#     return {"access_token": token, "token_type": "bearer"}
+@router.put("/book/{book_id}", response_model=Book)
+def edit_book(book: BookCreate, book_id: int, db: Session = Depends(get_db)):
+    return edit_book(db=db, book_id=book_id, book_data=book)
